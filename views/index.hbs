@@ -1,0 +1,41 @@
+{{> header }}
+
+<div class="container-fluid">   
+ 
+  <ul>
+      <li><a href="/blog/add">Thêm mới</a></li>
+    </ul>
+
+    <div class="content">
+      {{# if result }}
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>STT</th>
+            <th>Tiêu đề</th>
+            <th>Nội dung</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        {{# each result}}
+          <tr>
+            <td>{{id}}</td>
+            <td><a href="/blog/detail/{{id}}">{{title}}</a></td>
+            <td>{{content}}</td>
+            <td><a href="/blog/update/{{id}}" >Chỉnh sửa</a> |
+                </a>
+                <a href="/blog/delete/{{id}}" onclick="return confirm('Are you sure to delete this record ?');">Xóa</a>     
+            </td>
+          </tr>
+        {{/each}}
+        </tbody>
+      </table>
+    {{else}}
+      <p>Nội dung trống</p>
+    {{/if}}
+    </div>
+
+</div>
+ 
+{{> footer}}
